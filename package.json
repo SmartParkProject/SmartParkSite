@@ -1,0 +1,11 @@
+{
+  "name": "SmartParkSite",
+  "version": "0.0.1",
+  "description": "CSC483 Capstone Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodejs Server.js"
+  },
+  "author": "Alexander Ely",
+  "license": "BSD-2-Clause"
+}
