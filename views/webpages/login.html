@@ -12,11 +12,8 @@
    
     <title>Log in</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="views/smartpark.css" rel="stylesheet">
+    <link href="webpages/smartpark.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +31,7 @@
 		</div><!--Header-->
 		<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href= "/">Home</a></li>
+			<li><a href= "/">Home</a></li>
 			<li><a href="/about">About</a></li>
 			<li><a href="/viewParkingMap">View Parking Maps</a></li>
 			<li><a href="/viewParkingSpots">View Parking Stats</a></li>
@@ -42,17 +39,22 @@
 		</div><!--collapse-->
 	</div><!--container-fluid-->
 </div><!--navfixed top-->
-<div class="container" style="padding-top:60px;">
-<div class="jumbotron text-center">
-	<h3>Please enter your login information</h3>
+<div class="jumbotron" style="padding-top:60px;">
+<div class="container">
+	<h3 class = "form-signin-heading">Please enter your login information</h3>
 	<form class="form-signin">
-		<input type="text" class="form-control" id="usernamein" placeholder="Username" >
-		<input type="text" class="form-control" id="password" placeholder="Password">
-		<button type="button" class="btn btn-success">Submit</button>
+		<input type="text" class="form-control" id="usernamein" placeholder="Username" required autofocus>
+		<input type="text" class="form-control" id="password" placeholder="Password" required autofocus>
+		<button type="submit" onclick="postInfo()" class="btn btn-success">Submit</button>
+		<script>
+			function postInfo(){
+				window.alert(document.getElementById("usernamein").value+" "+document.getElementById("password").value);
+			}
+		</script>
 		<a class="btn btn-default" href="/CreateAccount">Create Account</a>
 	</form>	
+</div><!--container-->
 </div><!--jumbotron-->
-</div>
 <!--Fixed Footer for all webpages-->
 <div class="navbar navbar-default navbar-fixed-bottom">
 	<div class="containter">
