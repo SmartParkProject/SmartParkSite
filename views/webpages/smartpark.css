@@ -1,13 +1,5 @@
-html{
-	background-image:url(http://www.pcs-structural.com/sites/default/files/styles/project_details/public/projects/gallery/Emerald%20Queen%20Casino%20Parking%20Garages%202.jpg?itok=uG3FbZG2);
-	background-size: cover;
-}
-body {
-  padding-top: 20px;
-  padding-bottom: 20px; 
+body{
+	padding-top:200px;
 }
 
-.navbar {
-  margin-bottom: 20px;
-  
-}
+
