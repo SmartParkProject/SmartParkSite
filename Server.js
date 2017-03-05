@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/webpages/'
-
+app.use(express.static("views"));
 router.use(function (req, res, next){
 	console.log("/" + req.method);
 	next();
