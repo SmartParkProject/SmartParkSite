@@ -45,12 +45,28 @@
 	<form class="form-signin">
 		<input type="text" class="form-control" id="usernamein" placeholder="Username" required autofocus>
 		<input type="password" class="form-control" id="password" placeholder="Password" required autofocus>
-		<button type="submit" onclick="postInfo()" class="btn btn-success">Submit</button>
+		<button type="button" onclick="postInfo()" class="btn btn-success">Submit</button>
 		<script>
 			function postInfo(){
-				window.alert(document.getElementById("usernamein").value+" "+document.getElementById("password").value);
+				$.ajax({
+	type: "POST",
+	url: "https://smartparkproject.tk/api/account/login",
+	dataType: "json",
+	contentType:"application/json; charset=utf-8",
+	data: JSON.stringify({username: $('#usernamein').val(), password: $('#password').val()}),
+	success: function (data) {
+		console.log(data);
+		window.location.replace("/accountman");
+	},
+	error: function (data) {
+	console.log(data.responseText);
+	var obj = JSON.parse(data.responseText);
+	alert(obj.message);
+	location.reload(true);
+	}
+});
 			}
-		</script>
+		</script><!--Use test for user/pass for testing -->
 		<a class="btn btn-default" href="/CreateAccount">Create Account</a>
 	</form>	
 </div><!--container-->
