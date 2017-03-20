@@ -24,6 +24,10 @@ router.get("/accountman",function(req, res){
 	res.sendFile(path + "accountman.html");
 });
 
+router.get("/acctmanAdmin",function(req, res){
+	res.sendFile(path + "acctmanAdmin.html");
+});
+
 router.get("/CreateAccount",function(req, res){
 	res.sendFile(path + "CreateAccount.html");
 });
