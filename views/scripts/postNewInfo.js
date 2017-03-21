@@ -8,7 +8,6 @@ function postNewInfo(){
 		data: JSON.stringify({username: $('#email').val(), password: $('#password').val()}),
 		success: function (data) {
 			console.log(data);
-			window.location.replace("/accountman");
 			$.ajax({
 			type: "POST",
 			url: "https://smartparkproject.tk/api/account/login",
@@ -18,6 +17,7 @@ function postNewInfo(){
 		success: function (data) {
 			console.log(data);
 			document.cookie = "token="+data.result;
+			window.location.replace("/accountman");
 				}
 			});
 		},
