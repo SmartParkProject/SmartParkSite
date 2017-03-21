@@ -15,6 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="css/smartpark.css" rel="stylesheet">
     <script type="text/javascript" src="scripts/authuser.js"></script>
+    <script src="scripts/logout.js"></script>
 </head>
 <body onload="AuthUser()">
 
@@ -36,6 +37,11 @@
 			<li><a href="/viewParkingMap">View Parking Maps</a></li>
 			<li><a href="/viewParkingSpots">View Parking Stats</a></li>
 		</ul>
+		<div class="container-fluid">
+		<form class="navbar-form navbar-right">
+		<a class="btn btn-success" onclick="display_warning()" role="button">Log Out</a>
+		</form>
+		</div>
 		</div><!--collapse-->
 	</div><!--container-fluid-->
 </div><!--navfixed top-->
@@ -43,10 +49,11 @@
 <div class="container-fluid" id= "accountmancontainer" style="padding-top:60px">
 	<div class="row">
 		<div class="col-sm-4 sidebar">
-			<ul class="nav nav-sidebar">
+			<ul class="nav nav-pills nav-stacked">
 				<h3 class="page-header">Dashboard</h3>
 				<li><button type="button" href="#">Check In</button></li>
 				<li><button type="button" href="#">Check Status</button></li>
+				<li><button type="button" href="#">Check Out</button></li>
 			</ul>
 			<ul class="nav nav-sidebar">
 				<li>placeholder</li>
@@ -57,7 +64,7 @@
 	</div><!--Row-->
 
 </div><!--Dashboard container -->
-<div id="failureModal" class="modal fade" role="dialog">
+<div id="failureModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop='static'>
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -77,6 +84,22 @@
 		</div>
 	</div>
 </div><!--Modal div-->
+<div id="warnModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop='static'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Are you sure you want to leave?</h3>			
+			</div>
+			<div class="modal-body">
+			<p>You will be redirected to the login screen</p>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-success" href="/login" onclick="crack_token()" role="button">Yes</a>
+				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+			</div>
+		</div>
+	</div>
+</div><!--warningModal div-->
 <!--Fixed Footer for all webpages-->
 <div class="navbar navbar-default navbar-fixed-bottom">
 	<div class="containter">
