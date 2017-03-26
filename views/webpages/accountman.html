@@ -16,9 +16,10 @@
     <link href="css/smartpark.css" rel="stylesheet">
     <script type="text/javascript" src="scripts/authuser.js"></script>
     <script src="scripts/logout.js"></script>
+	<script src="scripts/getStatus.js"></script>
+	<script src="scripts/checkin.js"></script>
 </head>
 <body onload="AuthUser()">
-
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -45,25 +46,74 @@
 		</div><!--collapse-->
 	</div><!--container-fluid-->
 </div><!--navfixed top-->
-
-<div class="container-fluid" id= "accountmancontainer" style="padding-top:60px">
+<div class="container-fluid" id= "accountmancontainer" style="padding-top:50px">
 	<div class="row">
-		<div class="col-sm-4 sidebar">
-			<ul class="nav nav-pills nav-stacked">
-				<h3 class="page-header">Dashboard</h3>
-				<li><button type="button" href="#">Check In</button></li>
-				<li><button type="button" href="#">Check Status</button></li>
-				<li><button type="button" href="#">Check Out</button></li>
+	<div class="col-xs-12 col-sm-12 col-lg-12"><h3 class="page-header"> Hello! Welcome to your Smart Park account!</h3></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<ul class="nav nav-tabs">
+				<li class="active"><a type="button" data-toggle="tab" href="#overview">Overview</a></li>
+				<li><a type="button" data-toggle="tab" href="#Useracct">User Account Details</a></li>
+				<li><a type="button" data-toggle="tab" href="#parkinfo"   onClick="getStatus()">Parking Information</a></li>
+				<li><a type="button" data-toggle="tab" href="#payment">Payment Information</a></li>
 			</ul>
-			<ul class="nav nav-sidebar">
-				<li>placeholder</li>
-				<li>placeholder</li>
-			</ul>
-			</div>
-		<div class="col-sm-8"><h3 class="page-header"> Hello! Welcome to Smart Park!</h3></div>
+		</div>
 	</div><!--Row-->
+<div class="tab-content">
 
+	<div id="overview" class="tab-pane fade in active">
+		<h2>Account Overview</h2>
+		
+	</div>
+
+	
+	<div id="Useracct" class="tab-pane fade">
+		<h2>User Account</h2>
+		<form class="form-inline" style="padding: 20px;">
+			<div class="form-group-vertical">
+				<label class="control-label">Email:</label>
+						<p class="form-control-static">you@somewhere@example.com</p>
+			</div>
+			<div class="form-group-vertical">
+				<label class="control-label">Password:</label>
+						<p class="form-control-static">Password</p>
+			</div>
+		</form>
+	</div>
+	
+		<div id="parkinfo" class="tab-pane fade">
+		<h2>User Parking Information</h2>
+		<form class="form-inline" style="padding: 20px;">
+			<div class="form-group-vertical">
+							<input type="number" class="form-control" id="lot" placeholder="Lot" required autofocus>
+							<input type="number" class="form-control" id="spot" placeholder="Spot Number" required autofocus>
+							<button type="btn btn-default" onclick="checkin()" data-toggle="tab" href="#parkinfo">Check In</button>
+							<button type="btn btn-default" onClick="checkout()" data-toggle="tab" href="#parkinfo">Check Out</button>
+			</div>
+			<div class="form-group-vertical">
+				<label class="control-label">Current Parking Status:</label>
+						<p id="currstatus" class="form-control-static"></p>
+			</div>
+			<div class="form-group-vertical">
+				<label class="control-label">Current Parking Lot:</label>
+						<p id="currlot" class="form-control-static">None</p>
+			</div>
+			<div class="form-group-vertical">
+				<label class="control-label">Spot:</label>
+						<p id="currspot" class="form-control-static">None</p>
+			</div>
+		</form>
+	</div>
+	
+		<div id="payment" class="tab-pane fade">
+		<h4>Payment Options and Information<h4>
+		<p>Somthing</p>
+	</div>
+	
+		</div><!--Tabcontent end-->
 </div><!--Dashboard container -->
+
 <div id="failureModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop='static'>
 	<div class="modal-dialog">
 		<div class="modal-content">

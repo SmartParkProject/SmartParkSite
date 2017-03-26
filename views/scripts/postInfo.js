@@ -11,8 +11,8 @@ function postInfo(){
 		window.location.replace("/accountman");
 	},
 	error: function (data) {
-	console.log(data.responseText);
 	var obj = JSON.parse(data.responseText);
+		console.log(data.responseText);
 	$("#failureModal").modal('show');
 	}
 });
